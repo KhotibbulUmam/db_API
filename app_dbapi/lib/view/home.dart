@@ -23,8 +23,12 @@ class HomeState extends State<Home> {
     final hasil = await http.get(Uri.parse("http://localhost/iwima/list.php"));
     print(hasil.statusCode);
     print(hasil.body);
+    // final data = json.decode(hasil.body);
+    
     setState(() {
       _mahasiswa = json.decode(hasil.body);
+      // _mahasiswa = data.where((item) => item['status'].toString() == '1').toList();
+      // _mahasiswa = json.decode(hasil.body).where((item) => item['status'].toString() == '1').toList();
     });
   }
 
